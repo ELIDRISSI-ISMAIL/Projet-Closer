@@ -27,7 +27,7 @@ export class ValidationServicePage implements OnInit {
   dateString = '';
   services!: Service[];
   selectedService!: Service;
-  private source: string='10.72.103.93';
+  private source: string='localhost';
 
 
   constructor(private alertController: AlertController, private router: Router,
@@ -93,7 +93,7 @@ export class ValidationServicePage implements OnInit {
   }
   createAd(desc : string) : any{
     console.log(   "http://"+this.source+":9999/requests/add/1/1")
-     return this.http.post("http://"+this.source+":9999/requests/add/1/1", {
+     return this.http.post("http://"+this.source+":9999/requests/add/"+this.productService.currentUser.id+"/1", {
 
        "description": desc,
       "dateChosen": this.dateString

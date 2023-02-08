@@ -17,7 +17,7 @@ export class ProductService {
 
   demandes!: Requests[];
 
-  private source: string = "10.72.103.93";
+  private source: string = "localhost";
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };

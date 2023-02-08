@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'succes',
     loadChildren: () => import('./success/success.module').then(m => m.SuccessPageModule)
   },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then(m => m.SignupPageModule)
+  },
 
   {
     path: 'validation',
