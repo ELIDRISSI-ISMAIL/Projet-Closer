@@ -90,4 +90,7 @@ export class Tab2Page implements OnInit{
     });
   }
 
+  chooseOffer(id: string, id2: string) {
+
+  }
 }
