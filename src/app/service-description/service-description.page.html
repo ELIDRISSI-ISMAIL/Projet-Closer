@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  icon="caret-back" default-href="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Détails Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid>
+
+  <ion-row class="ion-align-items-center">
+
+<ion-card>
+  <img alt="Silhouette of mountains" src="https://vss.astrocenter.fr/habitatpresto/pictures/29998143-adobestock-143513414.jpeg" />
+  <ion-card-header>
+    <ion-card-title>Service provider name</ion-card-title>
+    <ion-card-subtitle>Service type</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+   Service description lorem ipsum
+  </ion-card-content>
+  <ion-card-content>
+    Ce service vous est loin de tant km
+  </ion-card-content>
+</ion-card>
+      <ion-card class="reviewcard">
+        <ion-card-header>
+          <ion-card-title class="review">Reviews</ion-card-title>
+
+        </ion-card-header>
+
+        <ion-card-content>
+          <app-review></app-review>
+        </ion-card-content>
+      </ion-card>
+    <ion-col size="12" class="ion-text-center">
+<ion-button shape="round" (click)="validate()">Demander</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

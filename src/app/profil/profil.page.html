@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border" >
+    <!-- <ion-title>Profil</ion-title> -->
+
+    <div>
+    
+    <ion-card-content>
+  
+      <ion-icon name="person" style="width: 60px; height: 50px;" ></ion-icon>
+  
+  </ion-card-content>
+  </div>
+</ion-header>
+
+
+
+<ion-content >
+
+
+ 
+
+  <ion-card-content style="height: 95%"  >
+
+
+   
+   
+   <div class="wrapform" >
+    <ion-item>
+     
+      <ion-icon name="call"></ion-icon>
+
+      <ion-input type="text" [(ngModel)]="Ntelephone" name="Ntelephone" placeholder="+212"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person"></ion-icon>
+      <ion-input type="text" [(ngModel)]="Nom" name="Nom" placeholder="Nom"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person"></ion-icon>
+      <ion-input type="prenom" [(ngModel)]="prenom" name="prenom" placeholder="prenom"></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="locate"></ion-icon>
+      <ion-input type="adresse" [(ngModel)]="adresse" name="adresse" placeholder="adresse"></ion-input>
+
+    </ion-item>
+    
+   
+     <div class="sign-btn-wrap">
+      <ion-button shape="round"  fill="solid" class="sign-btn">Enregistrer</ion-button>
+     </div>
+      
+   </div>
+   
+  </ion-card-content>
+</ion-content>

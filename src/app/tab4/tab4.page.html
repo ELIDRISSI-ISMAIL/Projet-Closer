@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Header
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+<!--  <p>HEllo World</p>-->
+<!--  // CHANTIER //-->
+<!--  <ion-content>-->
+<!--    <ion-list lines="full">-->
+<!--      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">-->
+<!--        <ion-item>-->
+<!--          <ion-label position="floating">Name</ion-label>-->
+<!--          <ion-input formControlName="name" type="text" required></ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--          <ion-label position="floating">Email</ion-label>-->
+<!--          <ion-input formControlName="position" type="text" required>-->
+<!--          </ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-item>-->
+<!--          <ion-label position="floating">User name</ion-label>-->
+<!--          <ion-input formControlName="compte" type="text" required>-->
+<!--          </ion-input>-->
+<!--        </ion-item>-->
+
+<!--        <ion-row>-->
+<!--          <ion-col>-->
+<!--            <ion-button type="submit" color="danger" expand="block">Add</ion-button>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--      </form>-->
+<!--    </ion-list>-->
+<!--  </ion-content>-->
+<!--  //////////////-->
+
+<!--  <ion-text>{{adherents}}</ion-text>-->
+<!--  <ion-list class="ion-align-items-center" *ngFor="let p of products;">-->
+<!--    <ion-card>-->
+<!--      <img alt="Silhouette of mountains" src="{{p.thumbnail}}" />-->
+<!--      <ion-card-header>-->
+<!--        <ion-card-title>{{p.title}}</ion-card-title>-->
+<!--        <ion-card-subtitle>{{p.price}}</ion-card-subtitle>-->
+<!--      </ion-card-header>-->
+
+<!--      <ion-card-content>{{p.description}}</ion-card-content>-->
+<!--    </ion-card>-->
+<!--  </ion-list>-->
+  <ion-list class="ion-align-items-center" *ngFor="let a of adherents;">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{a.name}}</ion-card-title>
+        <ion-card-subtitle>{{a.provider}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>{{a.compte.email}}</ion-card-content>
+      <ion-card-content>{{a.compte.id}}</ion-card-content>
+      <ion-card-content>{{a.id}}</ion-card-content>
+    </ion-card>
+    <ion-button (click)="selectMe(a)">Select Me !</ion-button>
+  </ion-list>
+
+<!--  <ion-button color="primary" [routerLink]="['/tabs/tab1']">Primary</ion-button>-->
+
+
+<!--  <ion-button [routerLink]="[currentUser.provider ? '/tabs/tab1' : '/tabs/tab2']" >-->
+<!--    {{currentUser.provider ? 'Go to your space' : 'Become a provider' }}-->
+<!--  </ion-button>-->
+
+
+<!--  <ion-button *ngIf="isProvider; else becomeProvider" [routerLink]="['/tabs/tab2']">-->
+<!--    Go to your space-->
+<!--  </ion-button>-->
+<!--  <ng-template #becomeProvider>-->
+<!--    <ion-button [routerLink]="['/tabs/tab1']">-->
+<!--      Become a provider-->
+<!--    </ion-button>-->
+<!--  </ng-template>-->
+
+</ion-content>

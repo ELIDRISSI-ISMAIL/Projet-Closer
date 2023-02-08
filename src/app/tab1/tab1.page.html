@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Espace Fournisseur
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Espace Fournisseur</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-list  *ngFor="let serv of services;" >
+  <ion-button size="small" button-type="primary" (click)="select(serv)">{{serv.name}}</ion-button>
+</ion-list>
+
+  <ion-text *ngIf="selectedService && !(selectedService.name=='vide')">
+    You have selected: {{ selectedService.name }}
+  </ion-text>
+
+  <ion-button *ngIf="!(selectedService.name=='vide')"
+              [routerLink]="['/tabs/tab2']"
+              (click)="registerProvider()">Confirm</ion-button>
+
+</ion-content>

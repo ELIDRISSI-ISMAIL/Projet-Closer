@@ -1,0 +1,138 @@
+ion-content{
+    --ion-background-color:#E1EAF9 !important ;
+    
+  }
+  
+  // display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  
+//   ion-button{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 40px;
+//     width: 203px;
+ 
+//     // left: 80;
+//     // right: 25;
+//     margin:auto;
+//     position: absolute;
+//   bottom: 0;
+//   right: 25;
+//   left: 25;
+  
+  
+//   }
+
+ion-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 240px;
+    position: absolute;
+    bottom: 0;
+  
+  
+  }
+  
+  
+  ion-header{
+    position:absolute;
+    font-size: 50px;
+    font-family: Arial, sans-serif;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+  
+  }
+  
+  ion-toolbar{
+    --ion-background-color:transparent;
+    --opacity:0;
+    
+  }
+  
+  .wrapform{
+    margin-top:30px;
+    
+    
+  }
+  
+ 
+  
+  ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  ion-no-border{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  ion-item{
+  
+    ion-input{
+      color:#647890;
+    }
+  
+    
+  
+  
+  }
+  
+  ion-card-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  
+  
+  .password-forgot{
+    text-align: right;
+    ion-button{
+      font-size: 12px;
+      
+    }
+
+    .body {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1;
+      }
+     
+      
+      .logo{
+        height:250px;
+        position: relative;
+        display: flex;
+        position:absolute;
+        font-size: 6em;;
+
+
+      }
+
+      
+
+  
+    .sign-btn-wrap{
+      
+      text-align: center;
+      padding-top: 30px;
+      
+      .sign-btn{
+        --ion-primary-color:#215AB7;
+        color: #f4f6fa;
+      }
+    }
+  }
