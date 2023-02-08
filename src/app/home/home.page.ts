@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../services/user.service";
 import {ProductService} from "../services/product.service";
 import {Router} from "@angular/router";
+import {Adherent} from "../models/Adherent";
 
 @Component({
   selector: 'app-home',
@@ -29,13 +30,18 @@ public login(){
 }
 
   public loginServ(email:string, password:string) : any{
-    this.userService.loginService(email,password).subscribe((result:any ) => {
+    this.userService.loginService(email,password).subscribe((result:Adherent ) => {
       console.log(result);
       // this.user=result;
       if (result != null){
         this.p.currentUser = result;
         console.log(this.p.currentUser);
-        this.p.getDemandessub();
+        if (result.provider == false){
+          this.p.getDemandessub();
+        }
+        else {
+          this.p.getAllDemandes();
+        }
         this.router.navigateByUrl('/tabs/tab2');
       }
       return result;

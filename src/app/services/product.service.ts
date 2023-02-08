@@ -85,6 +85,23 @@ export class ProductService {
     );
   }
 
+  public getDemandesAll(): Observable<Requests[]> {
+    console.log(this.currentUser.id);
+    console.log("http://" + this.source + ":9999/requests/find/all")
+    return this.http.get<Requests[]>("http://" + this.source + ":9999/requests/find/all");
+  }
+
+  getAllDemandes() {
+    this.getDemandesAll().subscribe(
+      (response) => {
+        this.demandes = response;
+        console.log("2eme appel");
+        console.log(response);
+      },
+
+    );
+  }
+
   /** POST: add a new hero to the database */
   public postAdherent(adherent: AdherentPost): Observable<AdherentPost> {
 
@@ -148,6 +165,7 @@ export class ProductService {
       console.log(data);
     });
   }
+
 
 }
 
