@@ -4,6 +4,7 @@ import {ProductService} from "../services/product.service";
 import {Adherent} from "../models/Adherent";
 import {Requests} from "../models/Requests";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-tab2',
@@ -13,9 +14,20 @@ import {Router} from "@angular/router";
 export class Tab2Page implements OnInit{
   demandes: Requests[] = this.productService.demandes;
 
+  private source: string='localhost';
 
-  constructor(public photoService: PhotoService,private  productService :ProductService, private router:Router) { }
+  inputValue: string='';
 
+
+  constructor(public photoService: PhotoService,
+              private http:HttpClient,
+              private  productService :ProductService, private router:Router) { }
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
   async ngOnInit() {
     if (this.productService.currentUser==null){
@@ -47,4 +59,18 @@ export class Tab2Page implements OnInit{
   refresh() {
     this.demandes = this.productService.demandes;
   }
+
+  addOfferToRequest(id: string) {
+    this.createAd(id, this.inputValue).subscribe((result:any ) => {
+      console.log(result);
+    });
+  }
+
+  createAd(id:string, desc : string) : any{
+    console.log("http://"+this.source+":9999/requests/addOffer/"+id+"/"+this.productService.currentUser.id)
+    return this.http.post("http://"+this.source+":9999/requests/addOffer/"+id+"/"+this.productService.currentUser.id, {
+      "description": desc,
+    });
+  }
+
 }
