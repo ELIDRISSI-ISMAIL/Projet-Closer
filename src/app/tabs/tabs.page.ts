@@ -17,6 +17,11 @@ export class TabsPage implements OnInit{
 
   getDemandes() {
     console.log(this.serv.demandes)
-    this.serv.getDemandes();
+    if (this.serv.currentUser.provider==false){
+      this.serv.getDemandessub();
+    }
+    else{
+      this.serv.getAllDemandes()
+    }
   }
 }

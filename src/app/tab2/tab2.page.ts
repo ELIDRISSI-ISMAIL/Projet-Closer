@@ -33,7 +33,12 @@ export class Tab2Page implements OnInit{
     if (this.productService.currentUser==null){
       this.router.navigateByUrl("/");
     }
-    this.getDemandes();
+    if (this.productService.currentUser.provider == false){
+      this.getDemandes();
+    }
+    else{
+      this.getAllDemandes();
+    }
     this.demandes = this.productService.demandes
     console.log(this.productService.demandes)
     await this.photoService.loadSaved();
@@ -42,6 +47,18 @@ export class Tab2Page implements OnInit{
 
   public getDemandes(): void {
     this.productService.getDemandes().subscribe(
+      (response) => {
+        this.productService.demandes = response;
+        console.log("2eme appel");
+        console.log(response);
+        this.demandes = this.productService.demandes;
+        console.log(this.demandes);
+      },
+
+    );
+  }
+  public getAllDemandes(): void {
+    this.productService.getDemandesAll().subscribe(
       (response) => {
         this.productService.demandes = response;
         console.log("2eme appel");
