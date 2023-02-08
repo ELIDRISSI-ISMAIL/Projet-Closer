@@ -21,7 +21,7 @@ export class Tab2Page implements OnInit{
 
   constructor(public photoService: PhotoService,
               private http:HttpClient,
-              private  productService :ProductService, private router:Router) { }
+              public  productService :ProductService, private router:Router) { }
 
   isModalOpen = false;
 
