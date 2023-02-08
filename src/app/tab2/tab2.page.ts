@@ -91,6 +91,14 @@ export class Tab2Page implements OnInit{
   }
 
   chooseOffer(id: string, id2: string) {
+    this.choose(id, id2).subscribe((result:any ) => {
+      console.log(result);
+    });
+  }
 
+  private choose(id: string, id2: string) {
+    console.log("http://"+this.source+":9999/requests/chooseOffer/"+id+"/"+id2)
+    return this.http.post("http://"+this.source+":9999/requests/chooseOffer/"+id+"/"+id2, {
+    });
   }
 }
