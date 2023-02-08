@@ -13,6 +13,10 @@ export class TabsPage implements OnInit{
    ngOnInit() {
     // if (this.serv.currentUser.provider){this.route='tab2'}
     // else this.route='tab1';
-  }
+   }
 
+  getDemandes() {
+    console.log(this.serv.demandes)
+    this.serv.getDemandes();
+  }
 }

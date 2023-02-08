@@ -7,7 +7,7 @@ import {AdherentPost} from "../models/AdherentPost";
 import {catchError, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {Service} from "../models/Service";
-import {ProductService} from "../Service/product.service";
+import {ProductService} from "../services/product.service";
 // import {format} from "util";
 
 @Component({
@@ -76,6 +76,9 @@ export class ValidationServicePage implements OnInit {
   }
 
   ngOnInit() {
+    if (this.productService.currentUser==null){
+      this.router.navigateByUrl("/");
+    }
     this.getServices();
   }
   setToday() {
@@ -103,6 +106,7 @@ export class ValidationServicePage implements OnInit {
       console.log(result);
       console.log(this.dateString)
     });
+    this.productService.getDemandessub();
   }
 
 

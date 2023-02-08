@@ -24,19 +24,7 @@ export class UserService {
               private router: Router) {
     }
 
-  public login(email:string, password:string) : any{
-    this.loginService(email,password).subscribe((result:Adherent ) => {
-      console.log(result);
-      // this.user=result;
-      if (result != null){
-        this.productService.currentUser = result;
-        console.log(this.productService.currentUser);
-        this.router.navigateByUrl('/tabs/tab2');
 
-      }
-      return result;
-    });
-  }
 
 
 

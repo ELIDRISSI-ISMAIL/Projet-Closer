@@ -13,6 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-button (click) = "refresh()">Refresh</ion-button>
   <ion-list *ngFor="let req of demandes;">
     <ion-card>
       <ion-card-header>{{req.dateChosen}}</ion-card-header>
