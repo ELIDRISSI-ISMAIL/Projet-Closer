@@ -37,7 +37,7 @@
               <ion-icon name="chatbox-ellipses-outline"></ion-icon>
               <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre problème" [autoGrow]="true"></ion-textarea>
             </ion-item>
-            <ion-button (click)="addOfferToRequest(req.id)"> Send Offer</ion-button>
+            <ion-button (click)="addOfferToRequest(req.id); setOpen(false)"> Send Offer</ion-button>
           </ion-content>
         </ng-template>
       </ion-modal>
