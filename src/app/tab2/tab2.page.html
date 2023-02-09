@@ -41,7 +41,7 @@
           </ion-content>
         </ng-template>
       </ion-modal>
-      <ion-modal *ngIf="this.productService.currentUser.provider == false" [isOpen]="isModalOpen">
+      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected === null" [isOpen]="isModalOpen">
         <ng-template>
           <ion-header>
             <ion-toolbar>
@@ -58,7 +58,30 @@
             </ion-item>
             <ion-card *ngFor="let offer of req.offers;">
               <ion-card-content>{{offer.description}}</ion-card-content>
-              <ion-button (click)="chooseOffer(req.id, offer.id); setOpen(false)"> Send Offer</ion-button>
+              <ion-button (click)="chooseOffer(req.id, offer.id); setOpen(false)"> Choose Offer</ion-button>
+            </ion-card>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected !== null" [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Modal</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false)">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-item>
+              <ion-content>Offers</ion-content>
+
+            </ion-item>
+            <ion-card>
+              <ion-card-header>{{req.offerSelected.provider.name}}</ion-card-header>
+              <ion-card-content>{{req.offerSelected.description}}</ion-card-content>
             </ion-card>
           </ion-content>
         </ng-template>
