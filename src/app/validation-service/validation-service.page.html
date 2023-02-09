@@ -1,77 +1,79 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-<!--      <ion-back-button  icon="caret-back" default-href="/service-description"></ion-back-button>-->
+      <ion-back-button  icon="caret-back" default-href="/service-description"></ion-back-button>
     </ion-buttons>
-    <ion-title>Demander un service</ion-title>
+    <ion-title>validation</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-grid>
 
   <ion-row class="ion-align-items-center">
     <ion-col size="12" class="ion-text-center">
-      <ion-card>
-        <ion-card-header>
-          <!--        <ion-card-title>Demande de service</ion-card-title>-->
-          <ion-card-subtitle> Formulez votre demande de service</ion-card-subtitle>
-        </ion-card-header>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Demande de service</ion-card-title>
+        <ion-card-subtitle> Formulez votre demande de service</ion-card-subtitle>
+      </ion-card-header>
 
-        <ion-card-content>
+      <ion-card-content>
 
-          <ion-list>
-            <ion-item>
-              <ion-text>Choisissez le type de service</ion-text>
-
-              <ion-select placeholder="Select Service"  (ionChange)="setServiceSelected($event)">
-                <ion-select-option *ngFor="let serv of services;" [value]="serv" >{{serv.name}}</ion-select-option>
-
-              </ion-select>
-            </ion-item>
-          </ion-list>
-
-
+        <ion-list>
           <ion-item>
-            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-            <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre problème" [autoGrow]="true"></ion-textarea>
+            <ion-text>Choisissez le type de service</ion-text>
+
+            <ion-select placeholder="Select Service"
+                        (ionChange)="setServiceSelected($event)">
+              <ion-select-option *ngFor="let serv of services;" [value]="serv" >{{serv.name}}</ion-select-option>
+
+            </ion-select>
           </ion-item>
-          <!--   <ion-item (click)="showPicker = !showPicker">
-
-               <ion-text slot="end">{{formattedString}}</ion-text>
-             </ion-item>
+        </ion-list>
 
 
-             <ion-item>
+<ion-item>
+  <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+  <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre problème" [autoGrow]="true"></ion-textarea>
+</ion-item>
+        <!--   <ion-item (click)="showPicker = !showPicker">
 
-             <ion-datetime *ngIf="showPicker" #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"></ion-datetime>
-               </ion-item> -->
-
-          <ion-accordion-group>
-            <ion-accordion value="start">
-              <ion-item slot="header">
-                <ion-icon name="calendar-outline"></ion-icon>
-                <ion-text>Votre service est pour {{formattedString}}</ion-text>
-
-                <ion-note slot="end" id="datetimeValue"></ion-note>
-              </ion-item>
-
-              <ion-datetime
-                id="datetime"
-                slot="content"
-                #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"
+             <ion-text slot="end">{{formattedString}}</ion-text>
+           </ion-item>
 
 
-              ></ion-datetime>
-            </ion-accordion>
-          </ion-accordion-group>
+           <ion-item>
+
+           <ion-datetime *ngIf="showPicker" #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"></ion-datetime>
+             </ion-item> -->
+
+      <ion-accordion-group>
+        <ion-accordion value="start">
+          <ion-item slot="header">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-text>Votre service est pour {{formattedString}}</ion-text>
+
+            <ion-note slot="end" id="datetimeValue"></ion-note>
+          </ion-item>
+
+          <ion-datetime
+            id="datetime"
+            slot="content"
+            #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"
+
+
+          ></ion-datetime>
+        </ion-accordion>
+      </ion-accordion-group>
 
 
 
-        </ion-card-content>
-      </ion-card>
+      </ion-card-content>
+    </ion-card>
 
 
 
-      <!--  <ion-button shape="round" expand="block" (click)="presentAlert()">Envoyer la demande</ion-button>-->
+<!--    <ion-button shape="round" expand="block" (click)="presentAlert()">Demander</ion-button>-->
+
       <ion-button shape="round" routerLink="/succes" expand="block" (click)="createAdService(inputValue)">Envoyer la demande</ion-button>
 
     </ion-col>
@@ -80,89 +82,4 @@
 
   </ion-row>
 </ion-grid>
-
-
-<!--<ion-header>-->
-<!--  <ion-toolbar>-->
-<!--    <ion-buttons slot="start">-->
-<!--      <ion-back-button  icon="caret-back" default-href="/service-description"></ion-back-button>-->
-<!--    </ion-buttons>-->
-<!--    <ion-title>validation</ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-<!--<ion-grid>-->
-
-<!--  <ion-row class="ion-align-items-center">-->
-<!--    <ion-col size="12" class="ion-text-center">-->
-<!--    <ion-card>-->
-<!--      <ion-card-header>-->
-<!--        <ion-card-title>Demande de service</ion-card-title>-->
-<!--        <ion-card-subtitle> Formulez votre demande de service</ion-card-subtitle>-->
-<!--      </ion-card-header>-->
-
-<!--      <ion-card-content>-->
-
-<!--        <ion-list>-->
-<!--          <ion-item>-->
-<!--            <ion-text>Choisissez le type de service</ion-text>-->
-
-<!--            <ion-select placeholder="Select Service" >-->
-<!--              <ion-select-option *ngFor="let serv of services;" value="{{serv.id}}" (click)="setServiceSelected(serv)">{{serv.name}}</ion-select-option>-->
-
-<!--            </ion-select>-->
-<!--          </ion-item>-->
-<!--        </ion-list>-->
-
-
-<!--<ion-item>-->
-<!--  <ion-icon name="chatbox-ellipses-outline"></ion-icon>-->
-<!--  <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre problème" [autoGrow]="true"></ion-textarea>-->
-<!--</ion-item>-->
-<!--        &lt;!&ndash;   <ion-item (click)="showPicker = !showPicker">-->
-
-<!--             <ion-text slot="end">{{formattedString}}</ion-text>-->
-<!--           </ion-item>-->
-
-
-<!--           <ion-item>-->
-
-<!--           <ion-datetime *ngIf="showPicker" #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"></ion-datetime>-->
-<!--             </ion-item> &ndash;&gt;-->
-
-<!--      <ion-accordion-group>-->
-<!--        <ion-accordion value="start">-->
-<!--          <ion-item slot="header">-->
-<!--            <ion-icon name="calendar-outline"></ion-icon>-->
-<!--            <ion-text>Votre service est pour {{formattedString}}</ion-text>-->
-
-<!--            <ion-note slot="end" id="datetimeValue"></ion-note>-->
-<!--          </ion-item>-->
-
-<!--          <ion-datetime-->
-<!--            id="datetime"-->
-<!--            slot="content"-->
-<!--            #datetime value="dateValue" (ionChange)="dateChanged(datetime.value)"-->
-
-
-<!--          ></ion-datetime>-->
-<!--        </ion-accordion>-->
-<!--      </ion-accordion-group>-->
-
-
-
-<!--      </ion-card-content>-->
-<!--    </ion-card>-->
-
-
-
-<!--&lt;!&ndash;    <ion-button shape="round" expand="block" (click)="presentAlert()">Demander</ion-button>&ndash;&gt;-->
-
-<!--      <ion-button shape="round" routerLink="/succes" expand="block" (click)="createAdService(inputValue)">Envoyer la demande</ion-button>-->
-
-<!--    </ion-col>-->
-
-
-
-<!--  </ion-row>-->
-<!--</ion-grid>-->
 

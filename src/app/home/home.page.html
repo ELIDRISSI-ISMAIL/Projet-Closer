@@ -1,17 +1,29 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title style="font-size:15px">Connexion</ion-title>
   </ion-toolbar>
-  <ion-buttons slot="start">
-<ion-back-button defaulthref="login" text=""></ion-back-button>
-  </ion-buttons>
+
+
 </ion-header>
+
+
+
+
 
 <ion-content>
 
+  <div>
+
+    <ion-card-content style="margin-top: 100px; font-size:60px">
+
+      <ion-icon name="person" ></ion-icon>
+
+    </ion-card-content>
+  </div>
+
   <ion-card-content>
 
-   <div class="wrapform" >
+   <div class="wrapform"  >
     <ion-item>
       <ion-icon name="mail-outline"></ion-icon>
       <ion-input type="text" [(ngModel)]="email" name="email" placeholder="Email"></ion-input>
@@ -26,11 +38,11 @@
       <ion-button fill="clear">password forgot ?</ion-button>
      </div>
      <div class="sign-btn-wrap">
-      <ion-button shape="round"  fill="solid" class="sign-btn" (click) = "login()">login</ion-button>
+      <ion-button style="margin-top: 20px" shape="round"  fill="solid" class="sign-btn" (click) = "login()">Se connecter</ion-button>
      </div>
      <div class="password-forgot" >
       <ion-button fill="clear" href="/signup">
-     vez vous pas de compte ? Créer le !
+     Avez vous pas de compte ? Créer le !
 
       </ion-button>
 
