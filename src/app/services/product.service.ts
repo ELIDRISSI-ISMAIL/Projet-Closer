@@ -8,6 +8,7 @@ import {Adherent} from "../models/Adherent";
 import {AdherentPost} from "../models/AdherentPost";
 import {Service} from "../models/Service";
 import {Requests} from "../models/Requests";
+import {Commandes} from "../models/Commandes";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ProductService {
 
   demandes!: Requests[];
 
-  private source: string = "localhost";
+  private source: string = "10.72.103.93";
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
@@ -27,14 +28,14 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  public getProducts(): Observable<ResponseApi> {
-    let ac = this.http.get<ResponseApi>("https://dummyjson.com/products?skip=4&limit=12",
-      {
-        headers: {}
-      });
-    console.log(ac);
-    return ac;
-  }
+  // public getProducts(): Observable<ResponseApi> {
+  //   let ac = this.http.get<ResponseApi>("https://dummyjson.com/products?skip=4&limit=12",
+  //     {
+  //       headers: {}
+  //     });
+  //   console.log(ac);
+  //   return ac;
+  // }
 
   public getAdherents(): Observable<Adherent[]> {
     let ab = this.http.get<Adherent[]>("http://" + this.source + ":9999/adherents/find/all",
@@ -102,6 +103,13 @@ export class ProductService {
     );
   }
 
+  //** GET : Get requests by service ////
+
+  public getCommandes(): Observable<Commandes[]> {
+    console.log(this.currentUser.id);
+    console.log("http://" + this.source + ":9999/requests/findByAdherent/" + this.currentUser.id)
+    return this.http.get<Commandes[]>("http://"+this.source+":9999/requests/findByService/")
+  }
   /** POST: add a new hero to the database */
   public postAdherent(adherent: AdherentPost): Observable<AdherentPost> {
 

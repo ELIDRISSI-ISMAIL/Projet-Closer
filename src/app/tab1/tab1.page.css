@@ -27,6 +27,11 @@
 /*  color: black;*/
 /*  font-size: 16px;*/
 /*}*/
+
+ion-list{
+
+  position: center;
+}
 ion-button {
   --background: #93e9be;
   --background-hover: #9ce0be;

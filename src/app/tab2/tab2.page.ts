@@ -9,12 +9,12 @@ import {HttpClient} from "@angular/common/http";
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  styleUrls: ['tab2.page.css']
 })
 export class Tab2Page implements OnInit{
   demandes: Requests[] = this.productService.demandes;
 
-  private source: string='localhost';
+  private source: string='10.72.103.93';
 
   inputValue: string='';
 

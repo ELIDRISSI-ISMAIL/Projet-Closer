@@ -18,8 +18,10 @@
     <ion-list *ngFor="let req of demandes;">
       <ion-card expand="block" (click)="setOpen(true)">
         <ion-card>
-          <ion-card-header>{{req.dateChosen}}</ion-card-header>
-          <ion-card-content>{{req.description}}</ion-card-content>
+          <ion-card-header>Service demandé : {{req.services.name}}</ion-card-header>
+          <ion-card-subtitle>Date choisie :{{req.dateChosen}}</ion-card-subtitle>
+          <ion-card-content>Description :{{req.description}}</ion-card-content>
+
         </ion-card>
       </ion-card>
       <ion-modal *ngIf="this.productService.currentUser.provider" [isOpen]="isModalOpen">

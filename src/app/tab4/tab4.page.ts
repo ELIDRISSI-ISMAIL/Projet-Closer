@@ -1,5 +1,5 @@
 import {Component, Input, NgZone, OnInit} from '@angular/core';
-import {AlertController} from "@ionic/angular";
+import {AlertController, ToastController} from "@ionic/angular";
 import {HttpErrorResponse} from "@angular/common/http";
 import { ProductService } from '../services/product.service';
 import {ResponseApi} from "../models/ResponseApi";
@@ -27,6 +27,7 @@ export class Tab4Page implements OnInit {
 
 
   constructor(
+    private toastController : ToastController,
     private router: Router,
     public formBuilder: FormBuilder,
     private zone: NgZone,
@@ -112,5 +113,16 @@ export class Tab4Page implements OnInit {
     this.productService.currentUser=adherent;
     console.log(adherent.provider);
     this.isProvider=this.productService.currentUser.provider;
+    this.presentToast("top");
+  }
+
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: this.productService.currentUser.name+" A toi de jouer !",
+      duration: 1500,
+      position: position
+    });
+
+    await toast.present();
   }
 }

@@ -27,15 +27,17 @@ export class ValidationServicePage implements OnInit {
   dateString = '';
   services!: Service[];
   selectedService!: Service;
-  private source: string='localhost';
+
+  private source: string='10.72.103.93';
 
 
   constructor(private alertController: AlertController, private router: Router,
               private http:HttpClient,
               private productService : ProductService) {
-    this.selectedService = new Service('404',"vide");
+    // this.selectedService = new Service('1',"vide");
     this.getServices();
     this.setToday();
+
   }
   public getServices(): void {
     this.productService.getServices().subscribe(
@@ -92,8 +94,8 @@ export class ValidationServicePage implements OnInit {
 
   }
   createAd(desc : string) : any{
-    console.log(   "http://"+this.source+":9999/requests/add/1/1")
-     return this.http.post("http://"+this.source+":9999/requests/add/"+this.productService.currentUser.id+"/1", {
+    console.log(   "http://"+this.source+":9999/requests/add/"+this.productService.currentUser.id+"/"+this.selectedService.id)
+     return this.http.post("http://"+this.source+":9999/requests/add/"+this.productService.currentUser.id+"/"+this.selectedService.id, {
 
        "description": desc,
       "dateChosen": this.dateString
@@ -110,7 +112,9 @@ export class ValidationServicePage implements OnInit {
   }
 
 
-  setServiceSelected(serv: Service) {
-    this.selectedService=serv;
+  setServiceSelected(ev : any) {
+    this.selectedService=ev.target.value;
+    console.log(ev.target.value);
+    console.log(this.selectedService.id);
   }
 }

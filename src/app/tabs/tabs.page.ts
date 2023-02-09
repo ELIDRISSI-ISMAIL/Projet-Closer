@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../services/product.service";
+import {WelcomePage} from "../welcome/welcome.page";
 
 @Component({
   selector: 'app-tabs',
@@ -9,6 +10,8 @@ import {ProductService} from "../services/product.service";
 export class TabsPage implements OnInit{
 
   route : string="tab1";
+  comp = WelcomePage;
+
   constructor(private serv :ProductService) {}
    ngOnInit() {
     // if (this.serv.currentUser.provider){this.route='tab2'}

@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab5/tab5.component').then(m => m.Tab5Component)
       },
       {
+        path: 'logout',
+        loadChildren: () => import('../welcome/welcome.module').then(m => m.WelcomePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

@@ -22,8 +22,9 @@
           <ion-item>
             <ion-text>Choisissez le type de service</ion-text>
 
-            <ion-select placeholder="Select Service" >
-              <ion-select-option *ngFor="let serv of services;" value="{{serv.id}}" (click)="setServiceSelected(serv)">{{serv.name}}</ion-select-option>
+            <ion-select placeholder="Select Service"
+                        (ionChange)="setServiceSelected($event)">
+              <ion-select-option *ngFor="let serv of services;" [value]="serv" >{{serv.name}}</ion-select-option>
 
             </ion-select>
           </ion-item>
