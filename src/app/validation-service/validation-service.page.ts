@@ -112,6 +112,7 @@ export class ValidationServicePage implements OnInit {
   }
 
 
+
   setServiceSelected(ev : any) {
     this.selectedService=ev.target.value;
     console.log(ev.target.value);
