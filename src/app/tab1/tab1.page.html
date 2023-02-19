@@ -1,84 +1,29 @@
-<!--<ion-header>-->
-<!--  <ion-toolbar>-->
-<!--&lt;!&ndash;    <ion-buttons slot="start">&ndash;&gt;-->
-<!--&lt;!&ndash;      <ion-back-button  icon="caret-back" default-href="/service-description"></ion-back-button>&ndash;&gt;-->
-<!--&lt;!&ndash;    </ion-buttons>&ndash;&gt;-->
-<!--    <ion-title>Espace Fournisseur</ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-<ion-content >
-  <div>
-    <img src="https://www.radeema.ma/documents/20181/70242/Fournisseurs-PG.JPG"></div>
-  <!--  <ion-header collapse="condense">-->
-  <!--    <ion-toolbar>-->
-  <!--      <ion-title size="large">Espace Fournisseur</ion-title>-->
-  <!--    </ion-toolbar>-->
-  <!--  </ion-header>-->
-  <ion-row class="bienv">
-    <ion-item>
-      <ion-col>
-        <ion-icon name="briefcase"></ion-icon>
-      </ion-col>
-      <ion-col>
-        <div class="bien" ><h1>Bienvenue dans votre espace fournisseur! </h1></div>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Espace Fournisseur
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-      </ion-col>
-
-    </ion-item>
-  </ion-row>
-
-  <ion-grid>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Espace Fournisseur</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 
-    <div class="hi">  Choisissez le type de service que vous souhaitez fournir:</div>
+<ion-list  *ngFor="let serv of services;" >
+  <ion-button size="small" button-type="primary" (click)="select(serv)">{{serv.name}}</ion-button>
+</ion-list>
 
-    <ion-row  class="ion-align-items-center"  *ngFor="let serv of services;" >
-      <ion-button shape="round"   (click)="select(serv)">{{serv.name}}</ion-button>
+  <ion-text *ngIf="selectedService && !(selectedService.name=='vide')">
+    You have selected: {{ selectedService.name }}
+  </ion-text>
 
-    </ion-row>
+  <ion-button *ngIf="!(selectedService.name=='vide')"
+              [routerLink]="['/tabs/tab2']"
+              (click)="registerProvider()">Confirm</ion-button>
 
-
-    <ion-item>
-      <ion-text *ngIf="selectedService && !(selectedService.name=='vide')">
-        Vous avez choisi: {{ selectedService.name }}
-      </ion-text>
-
-      <ion-button color="success" *ngIf="!(selectedService.name=='vide')"
-                  [routerLink]="['/tabs/tab2']"
-                  (click)="registerProvider()">Confirmer</ion-button>
-    </ion-item>
-
-  </ion-grid>
 </ion-content>
-
-
-
-<!--<ion-header [translucent]="true">-->
-<!--  <ion-toolbar>-->
-<!--    <ion-title>-->
-<!--      Espace Fournisseur-->
-<!--    </ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-
-<!--<ion-content [fullscreen]="true">-->
-<!--  <ion-header collapse="condense">-->
-<!--    <ion-toolbar>-->
-<!--      <ion-title size="large">Espace Fournisseur</ion-title>-->
-<!--    </ion-toolbar>-->
-<!--  </ion-header>-->
-
-
-<!--<ion-list  *ngFor="let serv of services;" >-->
-<!--  <ion-button size="small" button-type="primary" (click)="select(serv)">{{serv.name}}</ion-button>-->
-<!--</ion-list>-->
-
-<!--  <ion-text *ngIf="selectedService && !(selectedService.name=='vide')">-->
-<!--    You have selected: {{ selectedService.name }}-->
-<!--  </ion-text>-->
-
-<!--  <ion-button *ngIf="!(selectedService.name=='vide')"-->
-<!--              [routerLink]="['/tabs/tab2']"-->
-<!--              (click)="registerProvider()">Confirm</ion-button>-->
-
-<!--</ion-content>-->

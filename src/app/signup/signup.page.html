@@ -1,10 +1,8 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title style="font-size:18px; margin-top: 15px">Inscription</ion-title>
   </ion-toolbar>
-  <ion-buttons slot="start">
-<ion-back-button defaulthref="login" text=""></ion-back-button>
-  </ion-buttons>
+
 </ion-header>
 
 <ion-content>
@@ -33,13 +31,13 @@
       <ion-input type="password" [(ngModel)]="passwordconfirm" name="*****" placeholder="Password confirm"></ion-input>
 
     </ion-item>
-    
-   
+
+
      <div class="sign-btn-wrap">
-      <ion-button shape="round"  fill="solid" class="sign-btn" (click) = "signup()">Créer Compte</ion-button>
+      <ion-button style="margin-top: 40px" shape="round"  fill="solid" class="sign-btn" (click) = "signup()">Créer Compte</ion-button>
      </div>
-      
+
    </div>
-   
+
   </ion-card-content>
 </ion-content>
