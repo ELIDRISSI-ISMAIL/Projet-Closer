@@ -25,7 +25,7 @@
 
         </ion-card>
       </ion-card>
-      <ion-modal *ngIf="this.productService.currentUser.provider" [isOpen]="isModalOpen">
+      <ion-modal *ngIf="this.productService.currentUser.provider && req.adherent.id !== this.productService.currentUser.id" [isOpen]="isModalOpen">
         <ng-template>
           <ion-header>
             <ion-toolbar>
@@ -38,13 +38,13 @@
           <ion-content class="ion-padding">
             <ion-item>
               <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-              <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre problème" [autoGrow]="true"></ion-textarea>
+              <ion-textarea  [(ngModel)]="inputValue" placeholder="Decrivez votre offre" [autoGrow]="true"></ion-textarea>
             </ion-item>
             <ion-button (click)="addOfferToRequest(req.id); setOpen(false)"> Send Offer</ion-button>
           </ion-content>
         </ng-template>
       </ion-modal>
-      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected === null" [isOpen]="isModalOpen">
+      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected === null || this.productService.currentUser.provider && req.adherent.id === this.productService.currentUser.id" [isOpen]="isModalOpen">
         <ng-template>
           <ion-header>
             <ion-toolbar>
@@ -67,7 +67,7 @@
         </ng-template>
       </ion-modal>
 
-      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected !== null" [isOpen]="isModalOpen">
+      <ion-modal *ngIf="this.productService.currentUser.provider === false && req.offerSelected !== null || this.productService.currentUser.provider && req.adherent.id === this.productService.currentUser.id" [isOpen]="isModalOpen">
         <ng-template>
           <ion-header>
             <ion-toolbar>

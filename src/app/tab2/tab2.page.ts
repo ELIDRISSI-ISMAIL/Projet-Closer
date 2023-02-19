@@ -14,7 +14,7 @@ import {HttpClient} from "@angular/common/http";
 export class Tab2Page implements OnInit{
   demandes: Requests[] = this.productService.demandes;
 
-  private source: string='10.72.103.93';
+  private source: string='localhost';
 
   inputValue: string='';
 
